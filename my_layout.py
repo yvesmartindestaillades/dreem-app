@@ -1,6 +1,3 @@
-import sys
-path = '/Users/ymdt/src/dreem_nap/'
-sys.path.append(path)
 
 import dreem_nap
 from dreem_nap.study import *

@@ -11,8 +11,7 @@ import my_layout
 import io
 
 pd.options.mode.chained_assignment = None  # default='warn'
-path = '/Users/ymdt/src/dreem_nap/'
-sys.path.append(path)
+
 from dreem_nap.study import *
 import dreem_nap
 import plotly.express as px  # (version 4.7.0 or higher)
