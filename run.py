@@ -25,7 +25,7 @@ def print_state(state):
 
 
 
-def main(path_to_data, app):
+def main(app):
 
     # -- Import and clean data (importing csv into pandas)
     # df = pd.read_csv("intro_bees.csv")
@@ -33,11 +33,6 @@ def main(path_to_data, app):
 
     loaded_study, study = Study(), Study()
 
-    if path_to_data is None:
-        study = Study(path_to_data= path_to_data, 
-                             min_cov_bases=0,
-                             filter_by='sample')
-        print('Loaded df', study.df)
 
     state = {
         'plot_type': 'mutation_histogram',
@@ -256,6 +251,6 @@ def main(path_to_data, app):
 if __name__ == '__main__':
     app = Dash(__name__)
     server = app.server
-    main(path_to_data='/Users/ymdt/src/dreem_nap/ex/Lauren/lau.csv', app=app)
+    main(app=app)
     app.run_server(debug=True)
 
