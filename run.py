@@ -248,9 +248,10 @@ def main(app):
 #server = app.server
 
 # ------------------------------------------------------------------------------
-if __name__ == '__main__':
-    app = Dash(__name__)
-    server = app.server
-    main(app=app)
-    app.run_server(debug=True)
+#if __name__ == '__main__':
+#    app = Dash(__name__)
+#    server = app.server
+
+#    main(app=app)
+#    app.run_server(debug=True)
 
