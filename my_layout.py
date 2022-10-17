@@ -14,7 +14,7 @@ def maybe_a_library(df):
             and not s.startswith('ROI')]
 
 
-def layout(study):
+def layout():
     return html.Div([
 
         html.H1("New Analysis Pipeline with Dash",
