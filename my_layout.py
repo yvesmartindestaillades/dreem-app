@@ -1,6 +1,6 @@
 
 import dreem_nap
-from dreem_nap.study import *
+from dreem_nap.study import Study
 from dash import Dash, dcc, html, Input, Output
 
 
@@ -17,7 +17,7 @@ def maybe_a_library(df):
 def layout():
     return html.Div([
 
-        html.H1("New Analysis Pipeline with Dash",
+        html.H1("DREEM DMS-MaPseq analysis online tool",
                 style={'text-align': 'center'}),
 
         html.Div(className='row', children=[
