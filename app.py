@@ -20,11 +20,9 @@ server = app.server
 
 # -- Import and clean data (importing csv into pandas)
 # df = pd.read_csv("intro_bees.csv")
-global state, study, loaded_study
+global state, study
 
-loaded_study, study = Study(), Study()
-
-
+study = Study()
 state = {
     'plot_type': 'mutation_histogram',
     }
@@ -45,8 +43,6 @@ app.layout = my_layout.layout()
     prevent_initial_call=True,
     )
 def update_data(contents, filename):
-    global study
-
     print('Update data')
     if contents is not None:
         content_type, content_string = contents.split(',')
@@ -223,17 +219,6 @@ def display_select_residues(index_range_start, index_range_end):
         return [], None
     return [{'label': str(i), 'value': i} for i in range(index_range_start, index_range_end+1)], [i for i in range(index_range_start, index_range_end+1)]
 
-
-#@app.callback(
-#    [Output(component_id='my_plot', component_property='figure')],
-#    [Input(component_id='construct_dropdown', component_property='value')]
-#)
-#def update_construct(construct):
-#    return update_graph(construct)
-
-
-#app = run_standalone_app(layout, callbacks, header_colors, __file__)
-#server = app.server
 
 # ------------------------------------------------------------------------------
 if __name__ == '__main__':
