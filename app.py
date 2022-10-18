@@ -41,12 +41,11 @@ app.layout = my_layout.layout()
     Output('cluster', 'value'),
     Output('dataset_label', 'children'),
     Input('upload-data', 'contents'),
-    State('filter_by','value'),
     State('upload-data', 'filename'),
     prevent_initial_call=True,
     )
-def update_data(contents, filter_by, filename):
-    global study, loaded_study
+def update_data(contents, filename):
+    global study
 
     print('Update data')
     if contents is not None:
@@ -60,15 +59,13 @@ def update_data(contents, filter_by, filename):
                 # Assume that the user uploaded an excel file
                 reading_fun = pd.read_excel
             df = reading_fun(io.StringIO(decoded.decode('utf-8')))
-            loaded_study, study = Study(), Study()
-            loaded_study.set_df(df)
-            study.set_df(df, filter_by=filter_by)
+            study.set_df(df)
             print('Loaded df', study.df)
             return int(study.df.worst_cov_bases.max()), study.df['sample'].iloc[0], study.df['construct'].iloc[0], study.df['section'].iloc[0], study.df['cluster'].iloc[0], 'Dataset: {}'.format(filename)
 
-        except:
+        except Exception as e:
             print('There was an error processing this file.')
-            return 0
+            return 0, [], [], [], [], 'Failed upload: {}'.format(e)
 
 
 
