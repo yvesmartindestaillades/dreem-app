@@ -1,6 +1,5 @@
 from dreem_nap import manipulator, util, plotter
 import pandas as pd
-import re
 
 class Study(object):
     """A class to store information about a study, i.e a set of samples that are relevant to be studied together.

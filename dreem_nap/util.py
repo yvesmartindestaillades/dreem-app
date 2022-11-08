@@ -11,6 +11,10 @@ from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPM
 from scipy.optimize import curve_fit
 
+
+import subprocess
+import pandas as pd
+
 vals = SymbolValidator().values
 
 def Setshape(x):
@@ -99,8 +103,6 @@ def define_figure(title:str, xlabel:str, ylabel:str, figsize:Tuple[float, float]
     plt.ylabel(ylabel)
     return fig
 
-import yaml, os, subprocess
-import pandas as pd
 
 
 class Fit(object):
