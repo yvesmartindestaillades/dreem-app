@@ -14,3 +14,5 @@ source bin/activate
 pip install -r requirements.txt
 python3 app.py
 ```
+
+Then open http://127.0.0.1:8050/ in a web navigator.
