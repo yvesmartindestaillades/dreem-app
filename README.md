@@ -6,9 +6,11 @@ GitHub repo for DREEM DMS-MaPseq analysis online tool: https://dreem-app.herokua
 ## Installation + run the app
 
 ```
-cd path/to/where/you/want/dreem_app
+cd path/to/where/you/want/dreem-app
 git clone https://github.com/yvesmartindestaillades/dreem-app
-source venv/bin/activate
+cd dreem-app
+python3 -m venv .
+source bin/activate
 pip install -r requirements.txt
 python3 app.py
 ```
