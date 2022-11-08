@@ -5,11 +5,10 @@ import plotly.graph_objects as go
 import my_layout
 import io
 
-pd.options.mode.chained_assignment = None  # default='warn'
-
-from dreem_nap.study import *
+from dreem_nap.study import Study
 import plotly.graph_objects as go
 from dash import Dash, Input, Output, ctx, dcc, State, html
+import dash_uploader as du
 
 def print_state(state):
     for k, v in state.items():
@@ -57,12 +56,12 @@ def update_data(contents, filename):
             df = reading_fun(io.StringIO(decoded.decode('utf-8')))
             study.set_df(df)
             print('Loaded df', study.df)
+            print('Loaded df', study.df.columns)
             return int(study.df.worst_cov_bases.max()), study.df['sample'].iloc[0], study.df['construct'].iloc[0], study.df['section'].iloc[0], study.df['cluster'].iloc[0], 'Dataset: {}'.format(filename)
 
         except Exception as e:
             print('There was an error processing this file.')
             return 0, [], [], [], [], 'Failed upload: {}'.format(e)
-
 
 
 @app.callback(

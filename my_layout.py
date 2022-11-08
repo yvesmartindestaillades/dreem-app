@@ -6,12 +6,13 @@ from dash import Dash, dcc, html, Input, Output
 
 
 def maybe_a_library(df):
-    return [s for s in df.columns if (s not in ['sample', 'construct', 'section', 'cluster', 'index', 'num_reads', 'Unnamed: 0', 'num_aligned', 'start', 'end', 'experimental_variable']
+    return [s for s in df.columns if (s == 'family' or s not in ['sample', 'construct', 'section', 'cluster', 'index', 'num_reads', 'Unnamed: 0', 'num_aligned', 'start', 'end', 'experimental_variable']
             and df[s].dtype in [int, float, str])
             and not s.startswith('deltaG') and not s.startswith('structure') and not s.startswith('poisson')
             and not s.endswith('_bases')
             and not s.startswith('skips')
             and not s.startswith('ROI')]
+
 
 
 def layout():
@@ -67,15 +68,15 @@ def layout():
                 dcc.Dropdown(
                     id='plot_type',
                     options=[
-                        {'label': 'Mutation Histogram',
-                            'value': 'mutation_histogram'},
-                        {'label': 'DeltaG per Sample',
-                         'value': 'deltaG_per_sample'},
+                        {'label': 'Mutation rate bar plot',
+                            'value': 'mutation_fraction'},
+                        {'label': 'DeltaG vs mutation rates',
+                         'value': 'deltaG_vs_mut_rates'},
                         {'label': 'Experimental Variable across Samples',
-                         'value': 'variable_exp_across_samples'},
+                         'value': 'exp_variable_across_samples'},
 
                     ],
-                    value='mutation_histogram',
+                    value='mutation_fraction',
                     searchable=False,
                     clearable=False,
                 )
