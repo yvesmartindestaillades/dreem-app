@@ -3,7 +3,7 @@
 GitHub repo for DREEM DMS-MaPseq analysis online tool: https://dreem-app.herokuapp.com/
 
 
-## Installation + run the app
+## Installation + run the app with dummy data
 
 ```
 cd path/to/where/you/want/dreem-app
