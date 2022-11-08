@@ -2,3 +2,9 @@ venv
 *.pyc
 .DS_Store
 .env
+.gitignore
+
+__pycache__
+
+dreem_nap/__pycache__
+.requirements.txt.swp
